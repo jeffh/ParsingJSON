@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FD05CD019E09FA600602634 /* ParsingJSON.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FD05CCF19E09FA600602634 /* ParsingJSON.h */; };
-		1FD05CD219E09FA600602634 /* ParsingJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD05CD119E09FA600602634 /* ParsingJSON.m */; };
-		1FD05CD819E09FA600602634 /* libParsingJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD05CCC19E09FA600602634 /* libParsingJSON.a */; };
+		1F6A4E8519E0A5BE00BFE19A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6A4E8419E0A5BE00BFE19A /* XCTest.framework */; };
+		1F6A4E8719E0A5BE00BFE19A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6A4E8619E0A5BE00BFE19A /* CoreGraphics.framework */; };
+		1F6A4E8919E0A5BE00BFE19A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6A4E8819E0A5BE00BFE19A /* UIKit.framework */; };
+		1F6A4E8B19E0A5BE00BFE19A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6A4E8A19E0A5BE00BFE19A /* Foundation.framework */; };
+		1F6A4E9019E0A5BE00BFE19A /* ParsingJSON Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F6A4E8F19E0A5BE00BFE19A /* ParsingJSON Tests-Info.plist */; };
+		1F6A4E9519E0A5BF00BFE19A /* Cedar-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6A4E9419E0A5BF00BFE19A /* Cedar-iOS.framework */; };
+		1F6A4E9619E0A5BF00BFE19A /* libParsingJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD05CCC19E09FA600602634 /* libParsingJSON.a */; };
+		1F6A4EA619E0A79200BFE19A /* PersonParserSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A4EA519E0A79200BFE19A /* PersonParserSpec.mm */; };
+		1F6A4EAA19E0A8FB00BFE19A /* Fixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A4EA919E0A8FB00BFE19A /* Fixture.m */; };
+		1F98476319E0AB9100A6B7E1 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98476019E0AB9100A6B7E1 /* Person.m */; };
+		1F98476419E0AB9100A6B7E1 /* PersonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98476219E0AB9100A6B7E1 /* PersonParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1FD05CD919E09FA600602634 /* PBXContainerItemProxy */ = {
+		1F6A4E9719E0A5BF00BFE19A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1FD05CC419E09FA600602634 /* Project object */;
 			proxyType = 1;
@@ -29,21 +37,45 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				1FD05CD019E09FA600602634 /* ParsingJSON.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F6A4E8219E0A5BE00BFE19A /* ParsingJSON Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParsingJSON Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6A4E8419E0A5BE00BFE19A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1F6A4E8619E0A5BE00BFE19A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = /System/Library/Frameworks/CoreGraphics.framework; sourceTree = "<absolute>"; };
+		1F6A4E8819E0A5BE00BFE19A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		1F6A4E8A19E0A5BE00BFE19A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		1F6A4E8E19E0A5BE00BFE19A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F6A4E8F19E0A5BE00BFE19A /* ParsingJSON Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParsingJSON Tests-Info.plist"; sourceTree = "<group>"; };
+		1F6A4E9319E0A5BE00BFE19A /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
+		1F6A4E9419E0A5BF00BFE19A /* Cedar-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Cedar-iOS.framework"; path = "Frameworks/Cedar-iOS.framework"; sourceTree = "<group>"; };
+		1F6A4EA519E0A79200BFE19A /* PersonParserSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PersonParserSpec.mm; sourceTree = "<group>"; };
+		1F6A4EA819E0A8FB00BFE19A /* Fixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fixture.h; sourceTree = "<group>"; };
+		1F6A4EA919E0A8FB00BFE19A /* Fixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fixture.m; sourceTree = "<group>"; };
+		1F98475F19E0AB9100A6B7E1 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		1F98476019E0AB9100A6B7E1 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		1F98476119E0AB9100A6B7E1 /* PersonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonParser.h; sourceTree = "<group>"; };
+		1F98476219E0AB9100A6B7E1 /* PersonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonParser.m; sourceTree = "<group>"; };
 		1FD05CCC19E09FA600602634 /* libParsingJSON.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libParsingJSON.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FD05CCF19E09FA600602634 /* ParsingJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParsingJSON.h; sourceTree = "<group>"; };
-		1FD05CD119E09FA600602634 /* ParsingJSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParsingJSON.m; sourceTree = "<group>"; };
-		1FD05CD719E09FA600602634 /* ParsingJSONTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsingJSONTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FD05CDD19E09FA600602634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1F6A4E7B19E0A5BE00BFE19A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F6A4E8719E0A5BE00BFE19A /* CoreGraphics.framework in Frameworks */,
+				1F6A4E8919E0A5BE00BFE19A /* UIKit.framework in Frameworks */,
+				1F6A4E9519E0A5BF00BFE19A /* Cedar-iOS.framework in Frameworks */,
+				1F6A4E8519E0A5BE00BFE19A /* XCTest.framework in Frameworks */,
+				1F6A4E9619E0A5BF00BFE19A /* libParsingJSON.a in Frameworks */,
+				1F6A4E8B19E0A5BE00BFE19A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FD05CC919E09FA600602634 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,22 +83,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1FD05CD419E09FA600602634 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FD05CD819E09FA600602634 /* libParsingJSON.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F6A4E8319E0A5BE00BFE19A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F6A4E8419E0A5BE00BFE19A /* XCTest.framework */,
+				1F6A4E8619E0A5BE00BFE19A /* CoreGraphics.framework */,
+				1F6A4E8819E0A5BE00BFE19A /* UIKit.framework */,
+				1F6A4E8A19E0A5BE00BFE19A /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F6A4E8C19E0A5BE00BFE19A /* ParsingJSON Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1F6A4EA719E0A8B500BFE19A /* Support */,
+				1F6A4E8D19E0A5BE00BFE19A /* Supporting Files */,
+				1F6A4EA519E0A79200BFE19A /* PersonParserSpec.mm */,
+			);
+			path = "ParsingJSON Tests";
+			sourceTree = "<group>";
+		};
+		1F6A4E8D19E0A5BE00BFE19A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F6A4E8E19E0A5BE00BFE19A /* Info.plist */,
+				1F6A4E8F19E0A5BE00BFE19A /* ParsingJSON Tests-Info.plist */,
+				1F6A4E9319E0A5BE00BFE19A /* Rakefile */,
+				1F6A4E9419E0A5BF00BFE19A /* Cedar-iOS.framework */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F6A4EA719E0A8B500BFE19A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				1F6A4EA819E0A8FB00BFE19A /* Fixture.h */,
+				1F6A4EA919E0A8FB00BFE19A /* Fixture.m */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		1FD05CC319E09FA600602634 = {
 			isa = PBXGroup;
 			children = (
 				1FD05CCE19E09FA600602634 /* ParsingJSON */,
-				1FD05CDB19E09FA600602634 /* ParsingJSONTests */,
+				1F6A4E8C19E0A5BE00BFE19A /* ParsingJSON Tests */,
+				1F6A4E8319E0A5BE00BFE19A /* Frameworks */,
 				1FD05CCD19E09FA600602634 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD05CCC19E09FA600602634 /* libParsingJSON.a */,
-				1FD05CD719E09FA600602634 /* ParsingJSONTests.xctest */,
+				1F6A4E8219E0A5BE00BFE19A /* ParsingJSON Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,31 +149,35 @@
 		1FD05CCE19E09FA600602634 /* ParsingJSON */ = {
 			isa = PBXGroup;
 			children = (
-				1FD05CCF19E09FA600602634 /* ParsingJSON.h */,
-				1FD05CD119E09FA600602634 /* ParsingJSON.m */,
+				1F98475F19E0AB9100A6B7E1 /* Person.h */,
+				1F98476019E0AB9100A6B7E1 /* Person.m */,
+				1F98476119E0AB9100A6B7E1 /* PersonParser.h */,
+				1F98476219E0AB9100A6B7E1 /* PersonParser.m */,
 			);
 			path = ParsingJSON;
-			sourceTree = "<group>";
-		};
-		1FD05CDB19E09FA600602634 /* ParsingJSONTests */ = {
-			isa = PBXGroup;
-			children = (
-				1FD05CDC19E09FA600602634 /* Supporting Files */,
-			);
-			path = ParsingJSONTests;
-			sourceTree = "<group>";
-		};
-		1FD05CDC19E09FA600602634 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1FD05CDD19E09FA600602634 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1F6A4E8119E0A5BE00BFE19A /* ParsingJSON Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F6A4E9B19E0A5BF00BFE19A /* Build configuration list for PBXNativeTarget "ParsingJSON Tests" */;
+			buildPhases = (
+				1F6A4E7A19E0A5BE00BFE19A /* Sources */,
+				1F6A4E7B19E0A5BE00BFE19A /* Frameworks */,
+				1F6A4E7C19E0A5BE00BFE19A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F6A4E9819E0A5BF00BFE19A /* PBXTargetDependency */,
+			);
+			name = "ParsingJSON Tests";
+			productName = "ParsingJSON Tests";
+			productReference = 1F6A4E8219E0A5BE00BFE19A /* ParsingJSON Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1FD05CCB19E09FA600602634 /* ParsingJSON */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FD05CE019E09FA600602634 /* Build configuration list for PBXNativeTarget "ParsingJSON" */;
@@ -125,24 +195,6 @@
 			productReference = 1FD05CCC19E09FA600602634 /* libParsingJSON.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		1FD05CD619E09FA600602634 /* ParsingJSONTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1FD05CE319E09FA600602634 /* Build configuration list for PBXNativeTarget "ParsingJSONTests" */;
-			buildPhases = (
-				1FD05CD319E09FA600602634 /* Sources */,
-				1FD05CD419E09FA600602634 /* Frameworks */,
-				1FD05CD519E09FA600602634 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1FD05CDA19E09FA600602634 /* PBXTargetDependency */,
-			);
-			name = ParsingJSONTests;
-			productName = ParsingJSONTests;
-			productReference = 1FD05CD719E09FA600602634 /* ParsingJSONTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -152,10 +204,10 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Jeff Hui";
 				TargetAttributes = {
-					1FD05CCB19E09FA600602634 = {
+					1F6A4E8119E0A5BE00BFE19A = {
 						CreatedOnToolsVersion = 6.1;
 					};
-					1FD05CD619E09FA600602634 = {
+					1FD05CCB19E09FA600602634 = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
@@ -173,48 +225,106 @@
 			projectRoot = "";
 			targets = (
 				1FD05CCB19E09FA600602634 /* ParsingJSON */,
-				1FD05CD619E09FA600602634 /* ParsingJSONTests */,
+				1F6A4E8119E0A5BE00BFE19A /* ParsingJSON Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1FD05CD519E09FA600602634 /* Resources */ = {
+		1F6A4E7C19E0A5BE00BFE19A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6A4E9019E0A5BE00BFE19A /* ParsingJSON Tests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F6A4E7A19E0A5BE00BFE19A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F6A4EA619E0A79200BFE19A /* PersonParserSpec.mm in Sources */,
+				1F6A4EAA19E0A8FB00BFE19A /* Fixture.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FD05CC819E09FA600602634 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FD05CD219E09FA600602634 /* ParsingJSON.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1FD05CD319E09FA600602634 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				1F98476319E0AB9100A6B7E1 /* Person.m in Sources */,
+				1F98476419E0AB9100A6B7E1 /* PersonParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1FD05CDA19E09FA600602634 /* PBXTargetDependency */ = {
+		1F6A4E9819E0A5BF00BFE19A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1FD05CCB19E09FA600602634 /* ParsingJSON */;
-			targetProxy = 1FD05CD919E09FA600602634 /* PBXContainerItemProxy */;
+			targetProxy = 1F6A4E9719E0A5BF00BFE19A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1F6A4E9919E0A5BF00BFE19A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"\"$(PROJECT_DIR)/ParsingJSON Tests/Frameworks\"",
+				);
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ParsingJSON Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1F6A4E9A19E0A5BF00BFE19A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"\"$(PROJECT_DIR)/ParsingJSON Tests/Frameworks\"",
+				);
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "ParsingJSON Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		1FD05CDE19E09FA600602634 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -307,39 +417,18 @@
 			};
 			name = Release;
 		};
-		1FD05CE419E09FA600602634 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ParsingJSONTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		1FD05CE519E09FA600602634 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ParsingJSONTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F6A4E9B19E0A5BF00BFE19A /* Build configuration list for PBXNativeTarget "ParsingJSON Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F6A4E9919E0A5BF00BFE19A /* Debug */,
+				1F6A4E9A19E0A5BF00BFE19A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1FD05CC719E09FA600602634 /* Build configuration list for PBXProject "ParsingJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -356,14 +445,7 @@
 				1FD05CE219E09FA600602634 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		1FD05CE319E09FA600602634 /* Build configuration list for PBXNativeTarget "ParsingJSONTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1FD05CE419E09FA600602634 /* Debug */,
-				1FD05CE519E09FA600602634 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

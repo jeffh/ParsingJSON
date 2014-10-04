@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ParsingJSON Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>ParsingJSON.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1F6A4E8119E0A5BE00BFE19A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1FD05CCB19E09FA600602634</key>
 		<dict>
 			<key>primary</key>
