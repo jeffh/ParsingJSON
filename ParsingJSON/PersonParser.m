@@ -4,6 +4,7 @@
 
 NSString *kParserErrorDomain = @"kParserErrorDomain";
 NSInteger kParserErrorCodeNotFound = 1;
+NSInteger kParserErrorCodeBadData = 2;
 
 
 @implementation PersonParser
@@ -11,7 +12,15 @@ NSInteger kParserErrorCodeNotFound = 1;
 - (Person *)personFromJSONData:(NSData *)jsonData error:(__autoreleasing NSError **)error {
     *error = nil;
 
-    id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSError *jsonError = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&jsonError];
+
+    if (jsonError) {
+        *error = [NSError errorWithDomain:kParserErrorDomain
+                                     code:kParserErrorCodeBadData
+                                 userInfo:@{NSUnderlyingErrorKey: jsonError}];
+        return nil;
+    }
 
     if (json[@"message"]) {
         *error = [NSError errorWithDomain:kParserErrorDomain

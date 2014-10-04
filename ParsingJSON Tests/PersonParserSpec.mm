@@ -69,6 +69,26 @@ describe(@"PersonParser", ^{
                 error.userInfo should equal(@{NSLocalizedDescriptionKey: @"No person was found"});
             });
         });
+
+        context(@"with an invalid JSON object", ^{
+            __block NSError *jsonParseError;
+            beforeEach(^{
+                data = [@"invalid" dataUsingEncoding:NSUTF8StringEncoding];
+                jsonParseError = nil;
+                [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParseError];
+                jsonParseError should_not be_nil; // make sure we got the error.
+            });
+
+            it(@"should return nil", ^{
+                person should be_nil;
+            });
+
+            it(@"should return an error indicating the JSON failed to parse", ^{
+                error.domain should equal(kParserErrorDomain);
+                error.code should equal(kParserErrorCodeBadData);
+                error.userInfo should equal(@{NSUnderlyingErrorKey: jsonParseError});
+            });
+        });
     });
 });
 

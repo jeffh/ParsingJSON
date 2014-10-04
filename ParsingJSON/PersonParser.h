@@ -4,6 +4,7 @@
 @class Person;
 extern NSString *kParserErrorDomain;
 extern NSInteger kParserErrorCodeNotFound;
+extern NSInteger kParserErrorCodeBadData;
 
 
 @interface PersonParser : NSObject
