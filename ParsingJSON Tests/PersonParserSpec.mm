@@ -21,10 +21,11 @@ describe(@"PersonParser", ^{
     describe(@"converting JSON response to a Person object", ^{
         __block Person *person;
         __block NSData *data;
+        __block NSError *error;
 
         // subjectAction runs after all beforeEaches for each it block
         subjectAction(^{
-            person = [subject personFromJSONData:data];
+            person = [subject personFromJSONData:data error:&error];
         });
 
         context(@"with a valid JSON object of a person", ^{
@@ -45,6 +46,27 @@ describe(@"PersonParser", ^{
                 aFriend.identifier should equal(@2);
                 aFriend.name should equal(@"Andrew Kitchen");
                 aFriend.height should equal(86);
+            });
+
+            it(@"should return no error", ^{
+                error should be_nil;
+            });
+        });
+
+        context(@"with a valid JSON object of an error", ^{
+            beforeEach(^{
+                id json = @{@"message": @"Person not found"};
+                data = [Fixture jsonDataFromObject:json];
+            });
+
+            it(@"should return nil", ^{
+                person should be_nil;
+            });
+
+            it(@"should return an error indicating no person was given", ^{
+                error.domain should equal(kParserErrorDomain);
+                error.code should equal(kParserErrorCodeNotFound);
+                error.userInfo should equal(@{NSLocalizedDescriptionKey: @"No person was found"});
             });
         });
     });
