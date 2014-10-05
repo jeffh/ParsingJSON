@@ -23,6 +23,12 @@ NSInteger kParserErrorCodeBadData = 2;
         return nil;
     }
 
+    return [self personFromJSONObject:json error:error];
+}
+
+#pragma mark - Private
+
+- (Person *)personFromJSONObject:(id)json error:(__autoreleasing NSError **)error {
     Person *person = [[Person alloc] init];
     person.identifier = json[@"id"];
     person.name = json[@"name"];
@@ -34,16 +40,14 @@ NSInteger kParserErrorCodeBadData = 2;
         heightObject = [json[@"height"] description];
     }
     person.height = [[formatter numberFromString:heightObject] unsignedIntegerValue];
-    person.friends = [self friendsWithJSON:json formatter:formatter];
+    person.friends = [self friendsWithJSON:json];
     return person;
 }
-
-#pragma mark - Private
 
 - (id)jsonObjectFromJSONData:(NSData *)jsonData error:(__autoreleasing NSError **)error {
     NSError *jsonError = nil;
     id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&jsonError];
-    
+
     if (jsonError) {
         *error = [NSError errorWithDomain:kParserErrorDomain
                                      code:kParserErrorCodeBadData
@@ -62,22 +66,10 @@ NSInteger kParserErrorCodeBadData = 2;
     return nil;
 }
 
-- (NSArray *)friendsWithJSON:(id)jsonObject formatter:(NSNumberFormatter *)formatter {
+- (NSArray *)friendsWithJSON:(id)jsonObject {
     NSMutableArray *friends = [NSMutableArray array];
     for (NSDictionary *friendDict in jsonObject[@"friends"]) {
-        Person *aFriend = [[Person alloc] init];
-        aFriend.identifier = friendDict[@"id"];
-        aFriend.name = friendDict[@"name"];
-
-        NSString *heightObject;
-        if ([jsonObject[@"height"] isEqual:[NSNull null]]) {
-            heightObject = @"";
-        } else {
-            heightObject = [friendDict[@"height"] description];
-        }
-        aFriend.height = [[formatter numberFromString:heightObject] unsignedIntegerValue];
-        
-        [friends addObject:aFriend];
+        [friends addObject:[self personFromJSONObject:friendDict error:nil]];
     }
     return friends;
 }
