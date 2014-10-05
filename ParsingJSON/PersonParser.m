@@ -33,14 +33,27 @@ NSInteger kParserErrorCodeBadData = 2;
     person.identifier = json[@"id"];
     person.name = json[@"name"];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    person.height = [[formatter numberFromString:[json[@"height"] description]] unsignedIntegerValue];
+    NSString *heightObject;
+    if ([json[@"height"] isEqual:[NSNull null]]) {
+        heightObject = @"";
+    } else {
+        heightObject = [json[@"height"] description];
+    }
+    person.height = [[formatter numberFromString:heightObject] unsignedIntegerValue];
 
     NSMutableArray *friends = [NSMutableArray array];
     for (NSDictionary *friendDict in json[@"friends"]) {
         Person *aFriend = [[Person alloc] init];
         aFriend.identifier = friendDict[@"id"];
         aFriend.name = friendDict[@"name"];
-        aFriend.height = [friendDict[@"height"] integerValue];
+
+        if ([json[@"height"] isEqual:[NSNull null]]) {
+            heightObject = @"";
+        } else {
+            heightObject = [friendDict[@"height"] description];
+        }
+        aFriend.height = [[formatter numberFromString:heightObject] unsignedIntegerValue];
+
         [friends addObject:aFriend];
     }
     person.friends = friends;

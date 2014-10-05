@@ -53,8 +53,32 @@ describe(@"PersonParser", ^{
             });
         });
 
-        context(@"with a valid JSON object that has heights as strings", ^{
+        context(@"when a valid JSON object that has heights as nulls", ^{
+            beforeEach(^{
+                id json = @{@"id": @1,
+                            @"name": @"Jeff Hui",
+                            @"height": [NSNull null],
+                            @"friends": @[@{@"id": @2, @"name": @"Andrew Kitchen", @"height": [NSNull null]}]};
+                data = [Fixture jsonDataFromObject:json];
+            });
 
+            it(@"should return a person", ^{
+                person.identifier should equal(@1);
+                person.name should equal(@"Jeff Hui");
+                person.height should equal(0);
+                person.friends.count should equal(1);
+                Person *aFriend = person.friends.firstObject;
+                aFriend.identifier should equal(@2);
+                aFriend.name should equal(@"Andrew Kitchen");
+                aFriend.height should equal(0);
+            });
+
+            it(@"should return no error", ^{
+                error should be_nil;
+            });
+        });
+
+        context(@"with a valid JSON object that has heights as strings", ^{
             beforeEach(^{
                 id json = @{@"id": @1,
                             @"name": @"Jeff Hui",
