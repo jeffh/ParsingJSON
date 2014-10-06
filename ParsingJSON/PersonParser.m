@@ -35,13 +35,15 @@ NSInteger kParserErrorCodeBadData = 2;
 - (Person *)personFromJSONObject:(id)json error:(__autoreleasing NSError **)error {
     id<Mapper> stringToNumberMapper = [[StringToNumberMapper alloc] init];
     id<Mapper> friendsMapper = [[FriendsMapper alloc] init];
+    NSDictionary *jsonKeysToFields = @{@"id": @"identifier",
+                                       @"name": @"name",
+                                       @"height": @"height",
+                                       @"friends": @"friends"};
+    NSDictionary *fieldsToMappers = @{@"height": stringToNumberMapper,
+                                      @"friends": friendsMapper};
     id<Mapper> objectMapper = [[ObjectMapper alloc] initWithGeneratorOfClass:[Person class]
-                                                            jsonKeysToFields:@{@"id": @"identifier",
-                                                                               @"name": @"name",
-                                                                               @"height": @"height",
-                                                                               @"friends": @"friends"}
-                                                             fieldsToMappers:@{@"height": stringToNumberMapper,
-                                                                               @"friends": friendsMapper}];
+                                                            jsonKeysToFields:jsonKeysToFields
+                                                             fieldsToMappers:fieldsToMappers];
     return [objectMapper objectFromJSONObject:json error:error];
 }
 
