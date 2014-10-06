@@ -1,5 +1,7 @@
 #import "PersonParser.h"
 #import "Person.h"
+#import "Mapper.h"
+#import "StringToNumberMapper.h"
 
 
 NSString *kParserErrorDomain = @"kParserErrorDomain";
@@ -32,14 +34,15 @@ NSInteger kParserErrorCodeBadData = 2;
     Person *person = [[Person alloc] init];
     person.identifier = json[@"id"];
     person.name = json[@"name"];
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    NSString *heightObject;
-    if ([json[@"height"] isEqual:[NSNull null]]) {
-        heightObject = @"";
-    } else {
-        heightObject = [json[@"height"] description];
+
+    id<Mapper> stringToNumberMapper = [[StringToNumberMapper alloc] init];
+    NSError *mapperError = nil;
+    person.height = [[stringToNumberMapper objectFromJSONObject:json[@"height"] error:&mapperError] unsignedIntegerValue];
+    if (mapperError) {
+        *error = mapperError;
+        return nil;
     }
-    person.height = [[formatter numberFromString:heightObject] unsignedIntegerValue];
+
     person.friends = [self friendsWithJSON:json];
     return person;
 }

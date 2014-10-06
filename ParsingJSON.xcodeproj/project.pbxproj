@@ -16,6 +16,7 @@
 		1F6A4E9619E0A5BF00BFE19A /* libParsingJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD05CCC19E09FA600602634 /* libParsingJSON.a */; };
 		1F6A4EA619E0A79200BFE19A /* PersonParserSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A4EA519E0A79200BFE19A /* PersonParserSpec.mm */; };
 		1F6A4EAA19E0A8FB00BFE19A /* Fixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A4EA919E0A8FB00BFE19A /* Fixture.m */; };
+		1F89AFB319E21D1800CF4115 /* StringToNumberMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F89AFB219E21D1800CF4115 /* StringToNumberMapper.m */; };
 		1F98476319E0AB9100A6B7E1 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98476019E0AB9100A6B7E1 /* Person.m */; };
 		1F98476419E0AB9100A6B7E1 /* PersonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98476219E0AB9100A6B7E1 /* PersonParser.m */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,9 @@
 		1F6A4EA519E0A79200BFE19A /* PersonParserSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PersonParserSpec.mm; sourceTree = "<group>"; };
 		1F6A4EA819E0A8FB00BFE19A /* Fixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fixture.h; sourceTree = "<group>"; };
 		1F6A4EA919E0A8FB00BFE19A /* Fixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fixture.m; sourceTree = "<group>"; };
+		1F89AFAA19E2154C00CF4115 /* Mapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mapper.h; sourceTree = "<group>"; };
+		1F89AFB119E21D1800CF4115 /* StringToNumberMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringToNumberMapper.h; sourceTree = "<group>"; };
+		1F89AFB219E21D1800CF4115 /* StringToNumberMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToNumberMapper.m; sourceTree = "<group>"; };
 		1F98475F19E0AB9100A6B7E1 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		1F98476019E0AB9100A6B7E1 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		1F98476119E0AB9100A6B7E1 /* PersonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonParser.h; sourceTree = "<group>"; };
@@ -127,6 +131,16 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		1F89AFA919E2153300CF4115 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				1F89AFAA19E2154C00CF4115 /* Mapper.h */,
+				1F89AFB119E21D1800CF4115 /* StringToNumberMapper.h */,
+				1F89AFB219E21D1800CF4115 /* StringToNumberMapper.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 		1FD05CC319E09FA600602634 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +163,7 @@
 		1FD05CCE19E09FA600602634 /* ParsingJSON */ = {
 			isa = PBXGroup;
 			children = (
+				1F89AFA919E2153300CF4115 /* Private */,
 				1F98475F19E0AB9100A6B7E1 /* Person.h */,
 				1F98476019E0AB9100A6B7E1 /* Person.m */,
 				1F98476119E0AB9100A6B7E1 /* PersonParser.h */,
@@ -256,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F98476319E0AB9100A6B7E1 /* Person.m in Sources */,
+				1F89AFB319E21D1800CF4115 /* StringToNumberMapper.m in Sources */,
 				1F98476419E0AB9100A6B7E1 /* PersonParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
