@@ -2,6 +2,8 @@
 #import "Person.h"
 #import "Mapper.h"
 #import "StringToNumberMapper.h"
+#import "ObjectMapper.h"
+#import "FriendsMapper.h"
 
 
 NSString *kParserErrorDomain = @"kParserErrorDomain";
@@ -31,20 +33,16 @@ NSInteger kParserErrorCodeBadData = 2;
 #pragma mark - Private
 
 - (Person *)personFromJSONObject:(id)json error:(__autoreleasing NSError **)error {
-    Person *person = [[Person alloc] init];
-    person.identifier = json[@"id"];
-    person.name = json[@"name"];
-
     id<Mapper> stringToNumberMapper = [[StringToNumberMapper alloc] init];
-    NSError *mapperError = nil;
-    person.height = [[stringToNumberMapper objectFromJSONObject:json[@"height"] error:&mapperError] unsignedIntegerValue];
-    if (mapperError) {
-        *error = mapperError;
-        return nil;
-    }
-
-    person.friends = [self friendsWithJSON:json];
-    return person;
+    id<Mapper> friendsMapper = [[FriendsMapper alloc] init];
+    id<Mapper> objectMapper = [[ObjectMapper alloc] initWithGeneratorOfClass:[Person class]
+                                                            jsonKeysToFields:@{@"id": @"identifier",
+                                                                               @"name": @"name",
+                                                                               @"height": @"height",
+                                                                               @"friends": @"friends"}
+                                                             fieldsToMappers:@{@"height": stringToNumberMapper,
+                                                                               @"friends": friendsMapper}];
+    return [objectMapper objectFromJSONObject:json error:error];
 }
 
 - (id)jsonObjectFromJSONData:(NSData *)jsonData error:(__autoreleasing NSError **)error {
@@ -67,14 +65,6 @@ NSInteger kParserErrorCodeBadData = 2;
                                userInfo:@{NSLocalizedDescriptionKey: @"No person was found"}];
     }
     return nil;
-}
-
-- (NSArray *)friendsWithJSON:(id)jsonObject {
-    NSMutableArray *friends = [NSMutableArray array];
-    for (NSDictionary *friendDict in jsonObject[@"friends"]) {
-        [friends addObject:[self personFromJSONObject:friendDict error:nil]];
-    }
-    return friends;
 }
 
 @end

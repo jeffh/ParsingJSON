@@ -17,6 +17,8 @@
 		1F6A4EA619E0A79200BFE19A /* PersonParserSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A4EA519E0A79200BFE19A /* PersonParserSpec.mm */; };
 		1F6A4EAA19E0A8FB00BFE19A /* Fixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A4EA919E0A8FB00BFE19A /* Fixture.m */; };
 		1F89AFB319E21D1800CF4115 /* StringToNumberMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F89AFB219E21D1800CF4115 /* StringToNumberMapper.m */; };
+		1F89AFB619E2224500CF4115 /* ObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F89AFB519E2224500CF4115 /* ObjectMapper.m */; };
+		1F89AFB919E2270E00CF4115 /* FriendsMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F89AFB819E2270E00CF4115 /* FriendsMapper.m */; };
 		1F98476319E0AB9100A6B7E1 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98476019E0AB9100A6B7E1 /* Person.m */; };
 		1F98476419E0AB9100A6B7E1 /* PersonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98476219E0AB9100A6B7E1 /* PersonParser.m */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,10 @@
 		1F89AFAA19E2154C00CF4115 /* Mapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mapper.h; sourceTree = "<group>"; };
 		1F89AFB119E21D1800CF4115 /* StringToNumberMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringToNumberMapper.h; sourceTree = "<group>"; };
 		1F89AFB219E21D1800CF4115 /* StringToNumberMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToNumberMapper.m; sourceTree = "<group>"; };
+		1F89AFB419E2224500CF4115 /* ObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectMapper.h; sourceTree = "<group>"; };
+		1F89AFB519E2224500CF4115 /* ObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectMapper.m; sourceTree = "<group>"; };
+		1F89AFB719E2270E00CF4115 /* FriendsMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsMapper.h; sourceTree = "<group>"; };
+		1F89AFB819E2270E00CF4115 /* FriendsMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsMapper.m; sourceTree = "<group>"; };
 		1F98475F19E0AB9100A6B7E1 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		1F98476019E0AB9100A6B7E1 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		1F98476119E0AB9100A6B7E1 /* PersonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonParser.h; sourceTree = "<group>"; };
@@ -137,6 +143,10 @@
 				1F89AFAA19E2154C00CF4115 /* Mapper.h */,
 				1F89AFB119E21D1800CF4115 /* StringToNumberMapper.h */,
 				1F89AFB219E21D1800CF4115 /* StringToNumberMapper.m */,
+				1F89AFB419E2224500CF4115 /* ObjectMapper.h */,
+				1F89AFB519E2224500CF4115 /* ObjectMapper.m */,
+				1F89AFB719E2270E00CF4115 /* FriendsMapper.h */,
+				1F89AFB819E2270E00CF4115 /* FriendsMapper.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -270,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F89AFB919E2270E00CF4115 /* FriendsMapper.m in Sources */,
 				1F98476319E0AB9100A6B7E1 /* Person.m in Sources */,
+				1F89AFB619E2224500CF4115 /* ObjectMapper.m in Sources */,
 				1F89AFB319E21D1800CF4115 /* StringToNumberMapper.m in Sources */,
 				1F98476419E0AB9100A6B7E1 /* PersonParser.m in Sources */,
 			);
