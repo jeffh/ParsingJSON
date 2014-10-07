@@ -3,7 +3,7 @@
 #import "Mapper.h"
 #import "StringToNumberMapper.h"
 #import "ObjectMapper.h"
-#import "FriendsMapper.h"
+#import "ArrayMapper.h"
 
 
 NSString *kParserErrorDomain = @"kParserErrorDomain";
@@ -34,7 +34,13 @@ NSInteger kParserErrorCodeBadData = 2;
 
 - (Person *)personFromJSONObject:(id)json error:(__autoreleasing NSError **)error {
     id<Mapper> stringToNumberMapper = [[StringToNumberMapper alloc] init];
-    id<Mapper> friendsMapper = [[FriendsMapper alloc] init];
+    id<Mapper> friendMapper = [[ObjectMapper alloc] initWithGeneratorOfClass:[Person class]
+                                                             jsonKeysToFields:@{@"id": @"identifier",
+                                                                                @"name": @"name",
+                                                                                @"height": @"height"}
+                                                              fieldsToMappers:@{@"height": stringToNumberMapper}];
+    id<Mapper> friendsMapper = [[ArrayMapper alloc] initWithItemMapper:friendMapper];
+
     NSDictionary *jsonKeysToFields = @{@"id": @"identifier",
                                        @"name": @"name",
                                        @"height": @"height",
