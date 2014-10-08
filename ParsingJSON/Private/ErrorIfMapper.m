@@ -1,13 +1,13 @@
-#import "ErrorMapper.h"
+#import "ErrorIfMapper.h"
 
-@interface ErrorMapper ()
+@interface ErrorIfMapper ()
 @property (nonatomic, copy) NSString *errorDomain;
 @property (nonatomic) NSInteger errorCode;
 @property (nonatomic, copy) NSDictionary *userInfo;
 @property (nonatomic, copy) NSString *jsonKey;
 @end
 
-@implementation ErrorMapper
+@implementation ErrorIfMapper
 
 - (instancetype)init {
     [self doesNotRecognizeSelector:_cmd];
@@ -32,8 +32,9 @@
         *error = [NSError errorWithDomain:self.errorDomain
                                      code:self.errorCode
                                  userInfo:self.userInfo];
+        return nil;
     }
-    return nil;
+    return jsonObject;
 }
 
 @end
