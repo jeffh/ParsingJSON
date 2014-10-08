@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+extern NSString *kIsNonFatalKey;
 
 @protocol Mapper <NSObject>
 

@@ -7,6 +7,8 @@
 #import "ErrorIfMapper.h"
 #import "JSONDataToObjectMapper.h"
 #import "ChainMapper.h"
+#import "OptionalMapper.h"
+#import "NonNilMapper.h"
 
 
 NSString *kParserErrorDomain = @"kParserErrorDomain";
@@ -22,9 +24,9 @@ NSInteger kParserErrorCodeBadData = 2;
     JSONDataToObjectMapper *jsonMapper = [[JSONDataToObjectMapper alloc] initWithErrorDomain:kParserErrorDomain
                                                                                    errorCode:kParserErrorCodeBadData];
     ErrorIfMapper *errorMapper = [[ErrorIfMapper alloc] initWithErrorDomain:kParserErrorDomain
-                                                              errorCode:kParserErrorCodeNotFound
-                                                               userInfo:@{NSLocalizedDescriptionKey: @"No person was found"}
-                                                   errorIfJSONKeyExists:@"message"];
+                                                                  errorCode:kParserErrorCodeNotFound
+                                                                   userInfo:@{NSLocalizedDescriptionKey: @"No person was found"}
+                                                       errorIfJSONKeyExists:@"message"];
 
     NSArray *mappersToTry = @[jsonMapper, errorMapper, [self personMapper]];
     ChainMapper *mapper = [[ChainMapper alloc] initWithMappers:mappersToTry];
@@ -34,20 +36,26 @@ NSInteger kParserErrorCodeBadData = 2;
 #pragma mark - Private
 
 - (id<Mapper>)personMapper {
-    id<Mapper> stringToNumberMapper = [[StringToNumberMapper alloc] init];
+    id<Mapper> stringToNumber = [[StringToNumberMapper alloc] init];
+    id<Mapper> required = [[NonNilMapper alloc] initWithErrorDomain:kParserErrorDomain
+                                                                errorCode:kParserErrorCodeNotFound
+                                                                 userInfo:@{}];
     id<Mapper> friendMapper = [[ObjectMapper alloc] initWithGeneratorOfClass:[Person class]
                                                             jsonKeysToFields:@{@"id": @"identifier",
                                                                                @"name": @"name",
                                                                                @"height": @"height"}
-                                                             fieldsToMappers:@{@"height": stringToNumberMapper}];
-    id<Mapper> friendsMapper = [[ArrayMapper alloc] initWithItemMapper:friendMapper];
+                                                             fieldsToMappers:@{@"height": stringToNumber,
+                                                                               @"id": required,
+                                                                               @"name": required}];
+    id<Mapper> objectToFriendOrEmpty = [[OptionalMapper alloc] initWithMapper:friendMapper];
+    id<Mapper> objectToFriends = [[ArrayMapper alloc] initWithItemMapper:objectToFriendOrEmpty];
 
     NSDictionary *jsonKeysToFields = @{@"id": @"identifier",
                                        @"name": @"name",
                                        @"height": @"height",
                                        @"friends": @"friends"};
-    NSDictionary *fieldsToMappers = @{@"height": stringToNumberMapper,
-                                      @"friends": friendsMapper};
+    NSDictionary *fieldsToMappers = @{@"height": stringToNumber,
+                                      @"friends": objectToFriends};
     id<Mapper> objectMapper = [[ObjectMapper alloc] initWithGeneratorOfClass:[Person class]
                                                             jsonKeysToFields:jsonKeysToFields
                                                              fieldsToMappers:fieldsToMappers];

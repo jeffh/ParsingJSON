@@ -23,10 +23,10 @@
     for (id item in jsonObject) {
         NSError *itemError = nil;
         id transformedItem = [self.itemMapper objectFromSourceObject:item error:&itemError];
-        if (itemError) {
+        if (itemError && ![itemError.userInfo[kIsNonFatalKey] boolValue]) {
             *error = itemError;
             return nil;
-        } else {
+        } else if (!itemError) {
             [transformedItems addObject:transformedItem];
         }
     }

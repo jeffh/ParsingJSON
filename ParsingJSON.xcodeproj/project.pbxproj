@@ -24,6 +24,9 @@
 		1F98476419E0AB9100A6B7E1 /* PersonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F98476219E0AB9100A6B7E1 /* PersonParser.m */; };
 		1FB5B8C319E5257700F5BDD4 /* ChainMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5B8C219E5257700F5BDD4 /* ChainMapper.m */; };
 		1FB5B8C619E5267F00F5BDD4 /* JSONDataToObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5B8C519E5267F00F5BDD4 /* JSONDataToObjectMapper.m */; };
+		1FB5B8C819E52C2D00F5BDD4 /* Mapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5B8C719E52C2D00F5BDD4 /* Mapper.m */; };
+		1FB5B8CB19E52D9C00F5BDD4 /* OptionalMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5B8CA19E52D9C00F5BDD4 /* OptionalMapper.m */; };
+		1FB5B8CE19E530EC00F5BDD4 /* NonNilMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5B8CD19E530EC00F5BDD4 /* NonNilMapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,11 @@
 		1FB5B8C219E5257700F5BDD4 /* ChainMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainMapper.m; sourceTree = "<group>"; };
 		1FB5B8C419E5267F00F5BDD4 /* JSONDataToObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDataToObjectMapper.h; sourceTree = "<group>"; };
 		1FB5B8C519E5267F00F5BDD4 /* JSONDataToObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDataToObjectMapper.m; sourceTree = "<group>"; };
+		1FB5B8C719E52C2D00F5BDD4 /* Mapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mapper.m; sourceTree = "<group>"; };
+		1FB5B8C919E52D9C00F5BDD4 /* OptionalMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionalMapper.h; sourceTree = "<group>"; };
+		1FB5B8CA19E52D9C00F5BDD4 /* OptionalMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionalMapper.m; sourceTree = "<group>"; };
+		1FB5B8CC19E530EC00F5BDD4 /* NonNilMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonNilMapper.h; sourceTree = "<group>"; };
+		1FB5B8CD19E530EC00F5BDD4 /* NonNilMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NonNilMapper.m; sourceTree = "<group>"; };
 		1FD05CCC19E09FA600602634 /* libParsingJSON.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libParsingJSON.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				1F89AFAA19E2154C00CF4115 /* Mapper.h */,
+				1FB5B8C719E52C2D00F5BDD4 /* Mapper.m */,
 				1F89AFB119E21D1800CF4115 /* StringToNumberMapper.h */,
 				1F89AFB219E21D1800CF4115 /* StringToNumberMapper.m */,
 				1F89AFB419E2224500CF4115 /* ObjectMapper.h */,
@@ -162,6 +171,10 @@
 				1FB5B8C519E5267F00F5BDD4 /* JSONDataToObjectMapper.m */,
 				1FB5B8C119E5257700F5BDD4 /* ChainMapper.h */,
 				1FB5B8C219E5257700F5BDD4 /* ChainMapper.m */,
+				1FB5B8C919E52D9C00F5BDD4 /* OptionalMapper.h */,
+				1FB5B8CA19E52D9C00F5BDD4 /* OptionalMapper.m */,
+				1FB5B8CC19E530EC00F5BDD4 /* NonNilMapper.h */,
+				1FB5B8CD19E530EC00F5BDD4 /* NonNilMapper.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -295,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB5B8CE19E530EC00F5BDD4 /* NonNilMapper.m in Sources */,
 				1FB5B8C619E5267F00F5BDD4 /* JSONDataToObjectMapper.m in Sources */,
 				1F98476319E0AB9100A6B7E1 /* Person.m in Sources */,
 				1FB5B8C319E5257700F5BDD4 /* ChainMapper.m in Sources */,
@@ -302,6 +316,8 @@
 				1F89AFB619E2224500CF4115 /* ObjectMapper.m in Sources */,
 				1F89AFB319E21D1800CF4115 /* StringToNumberMapper.m in Sources */,
 				1F98476419E0AB9100A6B7E1 /* PersonParser.m in Sources */,
+				1FB5B8C819E52C2D00F5BDD4 /* Mapper.m in Sources */,
+				1FB5B8CB19E52D9C00F5BDD4 /* OptionalMapper.m in Sources */,
 				1F6A7CA619E4DB9A0001D5C7 /* ErrorIfMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
