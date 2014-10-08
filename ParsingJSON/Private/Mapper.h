@@ -3,6 +3,6 @@
 
 @protocol Mapper <NSObject>
 
-- (id)objectFromJSONObject:(id)jsonObject error:(__autoreleasing NSError **)error;
+- (id)objectFromSourceObject:(id)jsonObject error:(__autoreleasing NSError **)error;
 
 @end

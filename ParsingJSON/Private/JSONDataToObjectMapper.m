@@ -1,13 +1,11 @@
-#import "ErrorMapper.h"
+#import "JSONDataToObjectMapper.h"
 
-@interface ErrorMapper ()
+@interface JSONDataToObjectMapper ()
 @property (nonatomic, copy) NSString *errorDomain;
 @property (nonatomic) NSInteger errorCode;
-@property (nonatomic, copy) NSDictionary *userInfo;
-@property (nonatomic, copy) NSString *jsonKey;
 @end
 
-@implementation ErrorMapper
+@implementation JSONDataToObjectMapper
 
 - (instancetype)init {
     [self doesNotRecognizeSelector:_cmd];
@@ -15,25 +13,25 @@
 }
 
 - (instancetype)initWithErrorDomain:(NSString *)errorDomain
-                          errorCode:(NSInteger)errorCode
-                           userInfo:(NSDictionary *)userInfo
-               errorIfJSONKeyExists:(NSString *)jsonKey {
+                          errorCode:(NSInteger)errorCode {
     if (self = [super init]) {
         self.errorDomain = errorDomain;
         self.errorCode = errorCode;
-        self.userInfo = userInfo;
-        self.jsonKey = jsonKey;
     }
     return self;
 }
 
 - (id)objectFromSourceObject:(id)jsonObject error:(__autoreleasing NSError **)error {
-    if (jsonObject[self.jsonKey]) {
+    NSError *jsonError = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:jsonObject options:0 error:&jsonError];
+
+    if (jsonError) {
         *error = [NSError errorWithDomain:self.errorDomain
                                      code:self.errorCode
-                                 userInfo:self.userInfo];
+                                 userInfo:@{NSUnderlyingErrorKey: jsonError}];
+        return nil;
     }
-    return nil;
+    return json;
 }
 
 @end

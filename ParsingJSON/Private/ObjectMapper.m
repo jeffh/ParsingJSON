@@ -20,7 +20,7 @@
     return self;
 }
 
-- (id)objectFromJSONObject:(id)jsonObject error:(__autoreleasing NSError **)error {
+- (id)objectFromSourceObject:(id)jsonObject error:(__autoreleasing NSError **)error {
     *error = nil;
 
     id object = [[self.classOfObjectToCreate alloc] init];
@@ -31,7 +31,7 @@
         id value = [jsonObject valueForKeyPath:jsonKey];
         id<Mapper> valueMapper = self.fieldsToMappers[field];
         if (valueMapper) {
-            value = [valueMapper objectFromJSONObject:value error:error];
+            value = [valueMapper objectFromSourceObject:value error:error];
 
             if (*error) {
                 return nil;

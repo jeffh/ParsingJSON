@@ -5,6 +5,7 @@
 #import "ObjectMapper.h"
 #import "ArrayMapper.h"
 #import "ErrorMapper.h"
+#import "JSONDataToObjectMapper.h"
 
 
 NSString *kParserErrorDomain = @"kParserErrorDomain";
@@ -51,20 +52,13 @@ NSInteger kParserErrorCodeBadData = 2;
     id<Mapper> objectMapper = [[ObjectMapper alloc] initWithGeneratorOfClass:[Person class]
                                                             jsonKeysToFields:jsonKeysToFields
                                                              fieldsToMappers:fieldsToMappers];
-    return [objectMapper objectFromJSONObject:json error:error];
+    return [objectMapper objectFromSourceObject:json error:error];
 }
 
 - (id)jsonObjectFromJSONData:(NSData *)jsonData error:(__autoreleasing NSError **)error {
-    NSError *jsonError = nil;
-    id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&jsonError];
-
-    if (jsonError) {
-        *error = [NSError errorWithDomain:kParserErrorDomain
-                                     code:kParserErrorCodeBadData
-                                 userInfo:@{NSUnderlyingErrorKey: jsonError}];
-        return nil;
-    }
-    return json;
+    JSONDataToObjectMapper *mapper = [[JSONDataToObjectMapper alloc] initWithErrorDomain:kParserErrorDomain
+                                                                               errorCode:kParserErrorCodeBadData];
+    return [mapper objectFromSourceObject:jsonData error:error];
 }
 
 - (NSError *)errorMessageFromJSON:(id)json {
@@ -73,7 +67,7 @@ NSInteger kParserErrorCodeBadData = 2;
                                                               errorCode:kParserErrorCodeNotFound
                                                                userInfo:@{NSLocalizedDescriptionKey: @"No person was found"}
                                                    errorIfJSONKeyExists:@"message"];
-    [errorMapper objectFromJSONObject:json error:&error];
+    [errorMapper objectFromSourceObject:json error:&error];
     return error;
 }
 

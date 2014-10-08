@@ -18,11 +18,11 @@
     return self;
 }
 
-- (id)objectFromJSONObject:(id)jsonObject error:(__autoreleasing NSError **)error {
+- (id)objectFromSourceObject:(id)jsonObject error:(__autoreleasing NSError **)error {
     NSMutableArray *transformedItems = [NSMutableArray array];
     for (id item in jsonObject) {
         NSError *itemError = nil;
-        id transformedItem = [self.itemMapper objectFromJSONObject:item error:&itemError];
+        id transformedItem = [self.itemMapper objectFromSourceObject:item error:&itemError];
         if (itemError) {
             *error = itemError;
             return nil;

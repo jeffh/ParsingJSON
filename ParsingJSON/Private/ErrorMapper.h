@@ -6,6 +6,6 @@
 - (instancetype)initWithErrorDomain:(NSString *)errorDomain
                           errorCode:(NSInteger)errorCode
                            userInfo:(NSDictionary *)userInfo
-                    errorIfJSONKeyExists:(NSString *)jsonKey;
+               errorIfJSONKeyExists:(NSString *)jsonKey;
 
 @end

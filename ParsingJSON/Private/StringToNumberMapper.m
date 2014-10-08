@@ -2,7 +2,7 @@
 
 @implementation StringToNumberMapper
 
-- (id)objectFromJSONObject:(id)jsonObject error:(__autoreleasing NSError **)error {
+- (id)objectFromSourceObject:(id)jsonObject error:(__autoreleasing NSError **)error {
     // note: checking if jsonObject is the types we want might be useful
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSString *heightObject;
