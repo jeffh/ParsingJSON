@@ -4,6 +4,7 @@
 #import "StringToNumberMapper.h"
 #import "ObjectMapper.h"
 #import "ArrayMapper.h"
+#import "ErrorMapper.h"
 
 
 NSString *kParserErrorDomain = @"kParserErrorDomain";
@@ -35,10 +36,10 @@ NSInteger kParserErrorCodeBadData = 2;
 - (Person *)personFromJSONObject:(id)json error:(__autoreleasing NSError **)error {
     id<Mapper> stringToNumberMapper = [[StringToNumberMapper alloc] init];
     id<Mapper> friendMapper = [[ObjectMapper alloc] initWithGeneratorOfClass:[Person class]
-                                                             jsonKeysToFields:@{@"id": @"identifier",
-                                                                                @"name": @"name",
-                                                                                @"height": @"height"}
-                                                              fieldsToMappers:@{@"height": stringToNumberMapper}];
+                                                            jsonKeysToFields:@{@"id": @"identifier",
+                                                                               @"name": @"name",
+                                                                               @"height": @"height"}
+                                                             fieldsToMappers:@{@"height": stringToNumberMapper}];
     id<Mapper> friendsMapper = [[ArrayMapper alloc] initWithItemMapper:friendMapper];
 
     NSDictionary *jsonKeysToFields = @{@"id": @"identifier",
@@ -67,12 +68,13 @@ NSInteger kParserErrorCodeBadData = 2;
 }
 
 - (NSError *)errorMessageFromJSON:(id)json {
-    if (json[@"message"]) {
-        return [NSError errorWithDomain:kParserErrorDomain
-                                   code:kParserErrorCodeNotFound
-                               userInfo:@{NSLocalizedDescriptionKey: @"No person was found"}];
-    }
-    return nil;
+    NSError *error = nil;
+    ErrorMapper *errorMapper = [[ErrorMapper alloc] initWithErrorDomain:kParserErrorDomain
+                                                              errorCode:kParserErrorCodeNotFound
+                                                               userInfo:@{NSLocalizedDescriptionKey: @"No person was found"}
+                                                   errorIfJSONKeyExists:@"message"];
+    [errorMapper objectFromJSONObject:json error:&error];
+    return error;
 }
 
 @end
