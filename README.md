@@ -1,6 +1,11 @@
 # Parsing JSON
 
-Source Code to the [Parsing JSON Blog Posts](). Follow along from the tags:
+Source Code to the Parsing JSON Blog Posts:
+
+- [Part 1](http://pivotallabs.com/parsing-json-in-objective-c/)
+- Part 2
+
+Follow along from the tags:
 
 - [01-happiest-of-paths](https://github.com/jeffh/ParsingJSON/tree/01-happiest-of-paths) - The initial code of parsing JSON. Adding tests.
 - [02-handle-error-message](https://github.com/jeffh/ParsingJSON/tree/02-handle-error-message) - Handling error message JSON object. Adding tests.
